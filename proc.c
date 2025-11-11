@@ -34,23 +34,23 @@ void read() {
     }
 
     char *fields[MAX_FIELDS];
-    field_count = 0;
-char *token = strtok(line, DELIMITER);
-while (token != NULL && field_count < MAX_FIELDS) {
-                                                       fields[field_count++] = token;
-     token = strtok(NULL, DELIMITER);
-}
-						  
-//printf("Row with %d fields:\n", field_count);
-for (int i = 0; i < field_count; i++) {
-   //printf("  Field %d: '%s'\n", i + 1, fields[i]);
-   printf("%d'%s'\n", i + 1, fields[i]);
-  }
-}
-fclose(fpt);
+    int field_count = 0;
+    char *token = strtok(line, DELIMITER);
+    while (token != NULL && field_count < MAX_FIELDS) {
+	    fields[field_count++] = token;
+	    token = strtok(NULL, DELIMITER);
+    }
+
+    //printf("Row with %d fields:\n", field_count);
+    for (int i = 0; i < field_count; i++) {
+	    //printf("  Field %d: '%s'\n", i + 1, fields[i]);
+	    printf("%d'%s'\n", i + 1, fields[i]);
+    }
+    }
+    fclose(fpt);
 }
 
-void write(FILE *fpt, struct *id, char name[]) {
+void write(FILE *fpt, int id, char name[]) {
     fpt = fopen("sc.csv", "a");
     //fprintf(fpt,"move; article\n");
     fprintf(fpt,"%s; %s\n", id, name);
